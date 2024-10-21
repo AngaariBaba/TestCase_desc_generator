@@ -1,6 +1,10 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
+
+require("dotenv")
+const genAI = new GoogleGenerativeAI("AIzaSyAekFQozGYEb05nHPFY4okr4i54Y-1rN7k");
+
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
 
 // Import express as a module
 const express = require('express');
@@ -36,6 +40,7 @@ return result.response.text();
 
 app.get("/",(req,res)=>{
     console.log("working");
+    res.send("working..");
 })
 
 app.post("/getquestion",async (req,res)=>{
