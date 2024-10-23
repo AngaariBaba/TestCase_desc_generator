@@ -4,6 +4,7 @@ require("dotenv")
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const cors = require('cors');
 
 
 // Import express as a module
@@ -44,6 +45,7 @@ app.get("/",(req,res)=>{
 })
 
 app.post("/getquestion",async (req,res)=>{
+    console.log(process.env.GEMINI_API)
     const resp = await run(req.body.name);
     console.log(resp);
     res.json(JSON.parse(resp));
