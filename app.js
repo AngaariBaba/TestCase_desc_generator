@@ -15,6 +15,8 @@ const app = express();
 
 app.use(bodyParser.json())
 
+app.use(cors());
+
 async function  run(name)
 {
 
